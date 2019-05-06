@@ -1,0 +1,7 @@
+WORST CASE BIG O NOTATION ANALYSIS FOR ALL THE TASKS ARE AS FOLLOWS
+
+* TASK0 ===> O(10) ==> O(1)
+* TASK1 ===> O(4n+8) ==> O(n)
+* TASK2 ===> O(3n+10) ==> O(n)
+* TASK3 ===> O(17n+14) ==> O(n)
+* TASK4 ===> O(6n+13) ==> O(n)
