@@ -1,0 +1,35 @@
+WORST CASE BIG O NOTATION ANALYSIS FOR ALL THE TASKS ARE AS FOLLOWS
+
+* TASK0 ===> O(10) ==> O(1)
+Explanation: Task0 has 10 lines of code, which won't vary as input varies. It's a constant. 
+             Finally, O(10) => Worst Case Big O for Task0 is O(1)
+
+
+* TASK1 ===> O(4n+8) ==> O(n)
+Explanation: Task1 has 8 lines of code, which won't vary as input varies. => O(8)
+             Also, 1 for loop with 2 lines of code for texts.csv, which varies as text.csv content varies. => (2n + 8)
+             Similarly, 1 for loop with 2 lines of code for calls.csv, which varies as calls.csv content varies. => (2n + 2n + 8)
+             Finally, (4n + 8) => Worst Case Big O for Task1 is O(n)
+
+
+* TASK2 ===> O(11n+10) ==> O(n)
+Explanation: Task2 has 10 lines of code, which won't vary as input varies => O(10)
+             Also, 1 for loop with 11 lines of code (max possible lines of code for each loop) for calls.csv, which varies as calls.csv content varies => O(11n + 10)
+             Finally, O(11n+10) => Worst Case Big O for Task2 is O(n)
+
+
+* TASK3 ===> O(nlogn + 14n +14) ==> O(nlogn)
+Explanation: Task3 has 14 lines of code, which won't vary as input varies => O(14)
+             Also, 1 for loop with 12 lines of code (max possible lines of code for each loop) for calls.csv, which varies as calls.csv content varies => O(12n + 14)
+             Similarly, 1 more for loop with 1 line of code for calls.csv, which varies as calls.csv content varies. => (2n + 12n + 14)
+             Considering the sort as well, the worst case Big O for sort in Python is O(nlogn)
+             Finally, O(nlogn + 14n +14) => Worst Case Big O for Task3 is O(nlogn)
+
+
+
+* TASK4 ===> O(nlogn+9n+12) ==> O(n)
+Explanation: Task4 has 12 lines of code, which won't vary as input varies => O(12)
+             Also, 3 for loops with 2, 3 and 1 line(s) of code (max possible lines of code for each loop) 
+             for calls.csv, texts.csv and final list respectively, which varies as file(s) content varies => O(3n  + 4n + 2n + 12)
+             Considering the sorted as well, the worst case Big O for sorted in Python is O(nlogn)
+             Finally, O(nlogn+9n+12) => Worst Case Big O for Task4 is O(nlogn)
