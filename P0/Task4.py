@@ -36,12 +36,12 @@ for text in texts:
 
 for call in calls:
     call_receiver.add(call[1])
-    if (call[0][:3] == "140" and call[0] not in text_sender and call[0] not in text_receiver):
+    if (call[0] not in text_sender and call[0] not in text_receiver):
         call_sender_marketing.add(call[0])
     
-call_sender_marketing_final = list(call_sender_marketing - call_receiver)
-call_sender_marketing_final.sort()                
+
+call_sender_marketing_final = (call_sender_marketing - call_receiver)
 
 print("These numbers could be telemarketers: ")
-for caller in call_sender_marketing_final:
+for caller in sorted(call_sender_marketing_final):
     print(caller)

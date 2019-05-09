@@ -20,15 +20,29 @@ Print a message:
 September 2016.".
 """
 max_time_on_phone = -1
-max_index = -1
+max_telephone_no = ''
+telephone_no_dict = {}
 
 for i, call in enumerate(calls):
-    if(int(call[3]) > max_time_on_phone):
-        max_time_on_phone = int(call[3])
-        max_index = i
+    if (call[0] in telephone_no_dict):
+        telephone_no_dict[call[0]] += int(call[3])
+    else:
+        telephone_no_dict[call[0]] = int(call[3])
+    
+    if (call[1] in telephone_no_dict):
+        telephone_no_dict[call[1]] += int(call[3])
+    else:
+        telephone_no_dict[call[1]] = int(call[3])
 
-print(f"{calls[max_index][0]} spent the longest time, {calls[max_index][3]} seconds, on the phone during September 2016.")
-print(f"{calls[max_index][1]} spent the longest time, {calls[max_index][3]} seconds, on the phone during September 2016.")
+    if(telephone_no_dict[call[0]] > max_time_on_phone):
+        max_time_on_phone = telephone_no_dict[call[0]]
+        max_telephone_no = call[0]
+
+    if(telephone_no_dict[call[1]] > max_time_on_phone):
+        max_time_on_phone = telephone_no_dict[call[1]]
+        max_telephone_no = call[1]
+
+print(f"{max_telephone_no} spent the longest time, {max_time_on_phone} seconds, on the phone during September 2016.")
 
 
 

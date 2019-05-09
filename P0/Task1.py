@@ -30,4 +30,4 @@ for call in calls:
     unique_telephone_numbers.add(call[0])
     unique_telephone_numbers.add(call[1])
 
-print(len(unique_telephone_numbers))
+print(f"There are {len(unique_telephone_numbers)} different telephone numbers in the records.")
