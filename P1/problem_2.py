@@ -48,7 +48,13 @@ def find_files_helper(suffix, path):
 
     return output
 
-print(find_files(".c", "/Users/gowrijagadeesh/Documents/OnlineLearning/Udacity/DatastructureAndAlgorithms/testdir"))
-print(find_files("", "/Users/gowrijagadeesh/Documents/OnlineLearning/Udacity/DatastructureAndAlgorithms/testdir"))
-print(find_files(".c", ""))
-print(find_files("", ""))
+print(find_files(".c", "")) # output - []
+print(find_files("", "")) # output - []
+print(find_files(".c", os.path.join(current_path, "testdir")))
+# output
+# ['/.../DatastructureAndAlgorithms/P1/testdir/t1.c', 
+# '/.../DatastructureAndAlgorithms/P1/testdir/subdir3/subsubdir1/b.c', 
+# '/.../DatastructureAndAlgorithms/P1/testdir/subdir5/a.c', 
+# '/.../DatastructureAndAlgorithms/P1/testdir/subdir1/a.c']
+
+print(find_files("", os.path.join(current_path, "testdir"))) # output - All the files path in the specified path

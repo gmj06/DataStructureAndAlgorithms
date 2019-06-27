@@ -30,8 +30,8 @@ def is_user_in_group(user, group):
     return is_user_in_group_helper(user, group)
 
 def is_user_in_group_helper(user, group):
-    # Case when user is not provided
-    if user == "":
+    # Case when user or group is not provided
+    if user == "" or group is None:
         return False
 
     users = group.get_users()
@@ -58,8 +58,9 @@ child.add_user("child_user")
 parent.add_group(child)
 
 
-print(is_user_in_group("sub_child_user", parent))
-print(is_user_in_group("child_users", child))
-print(is_user_in_group("", child))
+print(is_user_in_group("sub_child_user", parent)) # output - True
+print(is_user_in_group("child_users", child)) # output - False
+print(is_user_in_group("", child)) # output - False
+print(is_user_in_group("No Group", None)) # output - False
     
         

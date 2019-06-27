@@ -23,7 +23,7 @@ class Blockchain:
 
 
     def create_genesis_block(self, data):
-        """ Create first block of the chain """
+        """ Create first block of the chain which is called as Genesis Block """
         self.create_block(data, 0)
 
     def get_UTC_time(self):
@@ -66,14 +66,16 @@ class Blockchain:
             print(print_string)
             print("<<<====") if block.index != self.size() - 1 else print("")
                             
-
+print(" --- Test Case #1 ---\n")
 blockchain = Blockchain("Genesis Block")
 block1 = blockchain.create_block("Block #1", blockchain.get_last_block().hash)
+block2 = blockchain.create_block("Block #2", blockchain.get_last_block().hash)
 blockchain.print_blockchain()
 
+print(" --- Test Case #2 ---\n")
 # As SHA 256 encoding is calculated based on all the properties of the Block, even if data is empty, it will not throw an error
 blockchain1 = Blockchain("")
-block11 = blockchain1.create_block("", blockchain1.get_last_block().hash)
+block11 = blockchain1.create_block("Block#!", blockchain1.get_last_block().hash)
 blockchain1.print_blockchain()
     
 

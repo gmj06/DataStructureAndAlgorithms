@@ -100,7 +100,7 @@ for i in element_1:
 for i in element_2:
     linked_list_2.append(i)
 
-print("------ # Test case 1 Solution ------")
+print("------ # Test case 1 Solution ------\n")
 print (union(linked_list_1,linked_list_2))
 print (intersection(linked_list_1,linked_list_2))
 
@@ -118,7 +118,7 @@ for i in element_1:
 for i in element_2:
     linked_list_4.append(i)
 
-print("------ # Test case 2 Solution ------")
+print("------ # Test case 2 Solution ------\n")
 print (union(linked_list_3,linked_list_4))
 print (intersection(linked_list_3,linked_list_4))
 
@@ -136,7 +136,7 @@ for i in element_1:
 for i in element_2:
     linked_list_6.append(i)
 
-print("------ # Test case 3 Solution ------")
+print("------ # Test case 3 Solution ------\n")
 print (union(linked_list_5,linked_list_6))
 print (intersection(linked_list_5,linked_list_6))
 
@@ -154,6 +154,6 @@ for i in element_1:
 for i in element_2:
     linked_list_8.append(i)
 
-print("------ # Test case 4 Solution ------")
+print("------ # Test case 4 Solution ------\n")
 print (union(linked_list_7,linked_list_8))
 print (intersection(linked_list_7,linked_list_8))

@@ -97,6 +97,9 @@ class Huffman_coding:
 
     def compress(self, text):
         """ Compressing the given text using Huffman Class methods/functions"""
+        if text == "":
+            return
+
         freq_dict = self.build_frequency_dict(text)
         self.build_heap(freq_dict)
         self.merge_nodes()
@@ -104,8 +107,13 @@ class Huffman_coding:
         encoded_text = self.get_encoded_text(text)
         return encoded_text
 
+         
+
     def decompress(self, encoded_data, tree_root):
         """ Decompressing the given compressed/encoded text using Huffman Class methods/functions"""
+        if encoded_data == "" or tree_root is None:
+            return
+
         decoded_text = ""; 
         current_node = tree_root; 
         for data in encoded_data:
@@ -113,20 +121,24 @@ class Huffman_coding:
                 current_node = current_node.left; 
             else:
                 current_node = current_node.right; 
-    
+        
             # reached leaf node 
             if (current_node.left is None and current_node.right is None):
                 decoded_text += current_node.char
                 current_node = tree_root
-            
-        return decoded_text; 
+
+        return decoded_text
+
+        
 
 
 def huffman_encoding(data):
+    """ Encoding the given data using Huffman_coding class """
     coding = Huffman_coding()
     return coding.compress(data), coding.get_root()
 
 def huffman_decoding(data,tree):
+    """ Decoding the given encoded data using Huffman_coding class """
     coding = Huffman_coding()
     return coding.decompress(data, tree)
     
@@ -134,6 +146,7 @@ def huffman_decoding(data,tree):
 if __name__ == "__main__":
     codes = {}
 
+    print(" --- Test Case 1 --- ")
     a_great_sentence = "The bird is the word"
 
     print ("The size of the data is: {}\n".format(sys.getsizeof(a_great_sentence)))
@@ -147,9 +160,9 @@ if __name__ == "__main__":
     decoded_data = huffman_decoding(encoded_data, tree)
 
     print ("The size of the decoded data is: {}\n".format(sys.getsizeof(decoded_data)))
-    print ("The content of the encoded data is: {}\n".format(decoded_data))
+    print ("The content of the decoded data is: {}\n".format(decoded_data))
 
-
+    print(" --- Test Case 2 --- ")
     a_great_sentence2 = "DataStructure and Algorithm Nanodegree in UDACITY!!!"
 
     print ("The size of the data is: {}\n".format(sys.getsizeof(a_great_sentence2)))
@@ -161,8 +174,46 @@ if __name__ == "__main__":
     print ("The content of the encoded data is: {}\n".format(encoded_data2))
 
     decoded_data2 = huffman_decoding(encoded_data2, tree2)
-
+   
     print ("The size of the decoded data is: {}\n".format(sys.getsizeof(decoded_data2)))
-    print ("The content of the encoded data is: {}\n".format(decoded_data2))
+    print ("The content of the decoded data is: {}\n".format(decoded_data2))
 
+    print(" --- Test Case 3 --- ")
+    a_great_sentence3 = ""
+    
+    # As per documentation (https://docs.python.org/3/library/sys.html), getsizeof() calls the object’s __sizeof__ method and adds an additional garbage collector overhead if the object is managed by the garbage collector.
+    # Hence, even though given data is empty string, the below line gives you the size 
+    print ("The size of the data is: {}\n".format(sys.getsizeof(a_great_sentence3)))
+    print ("The content of the data is: {}\n".format(a_great_sentence3))
+
+    encoded_data3, tree3 = huffman_encoding(a_great_sentence3)
+
+    # This line throws a "TypeError: int() can't convert non-string with explicit base"
+    # print ("The size of the encoded data is: {}\n".format(sys.getsizeof(int(encoded_data3, base=2))))
+    print ("The content of the encoded data is: {}\n".format(encoded_data3))
+
+    decoded_data3 = huffman_decoding(encoded_data3, tree3)
+   
+    # As per documentation (https://docs.python.org/3/library/sys.html), getsizeof() calls the object’s __sizeof__ method and adds an additional garbage collector overhead if the object is managed by the garbage collector.
+    # Hence, even though given data is empty string, the below line gives you the size  
+    print ("The size of the decoded data is: {}\n".format(sys.getsizeof(decoded_data3)))
+    print ("The content of the decoded data is: {}\n".format(decoded_data3))
+
+    print(" --- Test Case 4 --- ")
+    a_great_sentence4 = "Empty Tree Node Testing"
+    
+    print ("The size of the data is: {}\n".format(sys.getsizeof(a_great_sentence4)))
+    print ("The content of the data is: {}\n".format(a_great_sentence4))
+
+    encoded_data4, tree4 = huffman_encoding(a_great_sentence4)
+
+    print ("The size of the encoded data is: {}\n".format(sys.getsizeof(int(encoded_data4, base=2))))
+    print ("The content of the encoded data is: {}\n".format(encoded_data4))
+
+    decoded_data4 = huffman_decoding(encoded_data4, None)
+   
+    # As per documentation (https://docs.python.org/4/library/sys.html), getsizeof() calls the object’s __sizeof__ method and adds an additional garbage collector overhead if the object is managed by the garbage collector.
+    # Hence, even though given data is empty string, the below line gives you the size  
+    print ("The size of the decoded data is: {}\n".format(sys.getsizeof(decoded_data4)))
+    print ("The content of the decoded data is: {}\n".format(decoded_data4))
 
