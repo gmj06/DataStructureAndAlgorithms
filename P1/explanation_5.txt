@@ -1,0 +1,8 @@
+--- Explanation for problem_5.py (Blockchain) ---
+
+Implemented Blockchain using SHA 256 hashing algorithm which makes insertion and retrieval fast.
+
+Time complexity for calculating the hash is O(1) and 
+time complexity for insertion and retrieval from an array O(n) (worst case)
+
+Hence, Time complexity for problem_5 solution is O(n)

@@ -42,7 +42,7 @@ def is_user_in_group_helper(user, group):
 
     sub_groups = group.get_groups()
     for sub_group in sub_groups:
-        return is_user_in_group_helper(user, sub_group)
+        return is_user_in_group_helper(str(user), sub_group)
 
     return False
 

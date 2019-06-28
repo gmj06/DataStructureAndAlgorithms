@@ -1,0 +1,17 @@
+--- Explanation for problem_3.py (Huffman_coding) ---
+
+Huffman Algorithm is used to do lossless compression of the given data.
+This can be achieved using Doubly Linked List, to keep track of the left and right 
+nodes of the Binary Tree we are building using the binary code of each character in the given data.
+With a priority queue, 
+the entries are kept sorted (using the heapq module) and 
+the lowest valued entry is retrieved first. 
+So, its fast to retrieve small frequencies to merge to build Binary Tree.
+
+Time complexity for insertion and deletion of Doubly Linked List is O(1), whereas worst case is O(n).
+Also, time complexity for insertion and deletion of Priority Queue as a sorted Doubly Linked List is O(1).
+But, time complexity for building sorted frequencies dictionary for each character in a given text, merging nodes 
+and loop through encoded text to decode is O(n)
+
+Hence, time complexity for problem_3 solution is O(n)
+

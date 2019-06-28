@@ -72,11 +72,46 @@ block1 = blockchain.create_block("Block #1", blockchain.get_last_block().hash)
 block2 = blockchain.create_block("Block #2", blockchain.get_last_block().hash)
 blockchain.print_blockchain()
 
+# output is
+
+# index: 0 
+#  Timestamp: <created_date>
+#  Data: Genesis Block 
+#  SHA256 Hash: <SHA 256 code1>
+#  Prev_Hash: 0
+# <<<====
+# index: 1 
+#  Timestamp: <created_date>
+#  Data: Block #1 
+#  SHA256 Hash: <SHA 256 code2>
+#  Prev_Hash: <SHA 256 code1>
+# <<<====
+# index: 2 
+#  Timestamp: <created_date> 
+#  Data: Block #2 
+#  SHA256 Hash: <SHA 256 code3>
+#  Prev_Hash: <SHA 256 code2>
+
+
 print(" --- Test Case #2 ---\n")
 # As SHA 256 encoding is calculated based on all the properties of the Block, even if data is empty, it will not throw an error
 blockchain1 = Blockchain("")
 block11 = blockchain1.create_block("Block#!", blockchain1.get_last_block().hash)
 blockchain1.print_blockchain()
+
+# output is
+
+# index: 0 
+#  Timestamp: <created_date> 
+#  Data:  
+#  SHA256 Hash: <SHA 256 code4>
+#  Prev_Hash: 0
+# <<<====
+# index: 1 
+#  Timestamp: <created_date> 
+#  Data: Block#! 
+#  SHA256 Hash: <SHA 256 code5>
+#  Prev_Hash: <SHA 256 code4>
     
 
     

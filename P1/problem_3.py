@@ -51,7 +51,7 @@ class Huffman_coding:
 
 
     def build_Huffman_tree_helper(self, root, current_code):
-        """ Heper function to build Huffman Tree """
+        """ Heper function to build Binary Tree """
         if root is None:
             return
 
@@ -64,7 +64,7 @@ class Huffman_coding:
         self.build_Huffman_tree_helper(root.right, current_code + "1")
 
     def build_Huffman_tree(self):
-        """ Build the Huffman Tree by assigning a binary code to each letter, using shorter codes for the more frequent letters. """
+        """ Build the Binary Tree by assigning a binary code to each letter, using shorter codes for the more frequent letters. """
         self.root = heapq.heappop(self.heap)
         current_code = ""
         self.build_Huffman_tree_helper(self.root, current_code)

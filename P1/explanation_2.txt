@@ -1,0 +1,9 @@
+--- Explanation for problem_2.py (find_files) ---
+
+Used Recusion to finding all files under a directory (and all directories beneath it)
+with the suffix (if provided else all the files will be returned).
+
+Recursion avoids repetition of code and its fast.
+
+Time complexity of this solution is O(n)
+

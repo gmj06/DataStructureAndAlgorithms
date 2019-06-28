@@ -1,0 +1,6 @@
+--- Explanation for problem_6.py (Linked Lists Union and Intersection) ---
+
+Finding the Union and Intersection of two Singly-Linked List, 
+time complexity (worst case) is O(n)
+
+Hence, time complexity for problem_6 solution is O(n)
