@@ -5,5 +5,9 @@ with the suffix (if provided else all the files will be returned).
 
 Recursion avoids repetition of code and its fast.
 
-Time complexity of this solution is O(n)
+Time complexity of this solution is O(n) where n is the total number of files/directories in the given path
 
+Space complexity of recursive algorithm is proportional to maximum depth of recursion tree generated
+Hence, space complexity of this solution is O(nm) 
+where n is the total number of files/directories in the given path
+and m is the maximum depth of recursion tree

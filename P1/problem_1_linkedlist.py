@@ -11,9 +11,9 @@ class Node(object):
 
 
 class LRU_Cache(object):
-    def __init__(self, capacity):
+    def __init__(self, capacity=0): # given default capacity = 0
         # Initialize class variables
-        self.hash_map = {}
+        self.cache = {}
         self.capacity = capacity
         self.head = None
         self.tail = None
@@ -21,32 +21,40 @@ class LRU_Cache(object):
 
     def get(self, key):
         """ Retrieve item from provided key. Return -1 if nonexistent. """
-        if key not in self.hash_map:
-            print("-1")
-            return -1
+        if (key not in self.cache):
+            value = -1
+        else:    
+            node = self.cache[key]
+            self.remove_node(node)
+            self.set_head(node)
+            value = node.value
 
-        node = self.hash_map[key]
-        self.remove_node(node)
-        self.set_head(node)
-
-        print(node.value)
-        return node.value
+        print(f"key: {key}, value: {value}")
+        return value
 
     def set(self, key, value):
         """ Set the value if the key is not present in the cache. If the cache is at capacity remove the oldest item. """
-        if key in self.hash_map:
-            node = self.hash_map[key]
-            node.value = value
-            self.remove_node(node)
-            self.set_head(node)
-        else:
-            new_node = Node(key, value)
-            if self.num_caches == self.capacity:
-                del self.hash_map[self.tail.key]
-                self.remove_node(self.tail)
+        try:
+            if key in self.cache:
+                node = self.cache[key]
+                node.value = value
+                self.remove_node(node)
+                self.set_head(node)
+            else:
+                new_node = Node(key, value)
+                if self.num_caches == self.capacity:
+                    del self.cache[self.tail.key]
+                    self.remove_node(self.tail)
 
-            self.set_head(new_node)
-            self.hash_map[key] = new_node
+                if self.capacity > 0:
+                    self.set_head(new_node)
+                    self.cache[key] = new_node   
+                else:
+                    raise AttributeError("Please create the LRU_Cache object with capacity greater than 0")
+
+        except AttributeError:
+            print("Please create the LRU_Cache object with capacity greater than 0")
+
        
     def set_head(self, node):
         """ Set given node as head of the Doubly Linked List """
@@ -86,21 +94,44 @@ class LRU_Cache(object):
         return node
   
 
-
+# Test case 1 - with Capcaity > 0
 our_cache = LRU_Cache(5)
 our_cache.set(1, 1)
 our_cache.set(2, 2)
 our_cache.set(3, 3)
 our_cache.set(4, 4)
 
-# print("[num_caches = %s, head = %s, tail = %s]" % (str(our_cache.num_caches), str(our_cache.head), str(our_cache.tail)))
+
 our_cache.get(1)       # returns 1
 our_cache.get(2)       # returns 2
 our_cache.get(9)      # returns -1 because 9 is not present in the cache
-# print("[num_caches = %s, head = %s, tail = %s]" % (str(our_cache.num_caches), str(our_cache.head), str(our_cache.tail)))
+
 our_cache.set(5, 5)
-# print("[num_caches = %s, head = %s, tail = %s]" % (str(our_cache.num_caches), str(our_cache.head), str(our_cache.tail)))
 our_cache.set(6, 6)
-# print("[num_caches = %s, head = %s, tail = %s]" % (str(our_cache.num_caches), str(our_cache.head), str(our_cache.tail)))
 our_cache.get(3)      # returns -1 because the cache reached it's capacity and 3 was the least recently used entry
+our_cache.get(5)      # returns 5
+our_cache.set(5, 10)
+our_cache.get(5)   # after setting new value, returns 10
+
+# Test Case 2 -- With capcaity = 0
+our_cache1 = LRU_Cache(0)
+our_cache1.set(1, 11) # returns - custom error message
+our_cache1.set(2, 22) # returns - custom error message
+
+our_cache1.get(1)  # return  -1 because 1 is not found in the cache
+
+# Test Case 3 -- With capcaity < 0
+our_cache2 = LRU_Cache(-1)
+our_cache2.set(11, 11) # returns - custom error message
+our_cache2.set(22, 22) # returns - custom error message
+our_cache2.get(11)  # return  -1 because 1 is not found in the cache
+our_cache2.get(55)  # return  -1 because 1 is not found in the cache
+
+# Test Case 3 -- Without capcaity
+our_cache3 = LRU_Cache() 
+# Exception "TypeError: __init__() missing 1 required positional argument" 
+# is handled by giving default value 0 for capacity
+
+our_cache3.set(11, 11) # returns - custom error message
+our_cache3.get(100)  # return  -1 because 1 is not found in the cache
 

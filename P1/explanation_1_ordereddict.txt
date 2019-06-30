@@ -6,3 +6,4 @@ When the capacity is full, we can easily remove the least recently used cache us
 As (last = False) gives us FIFO order, so we can remove the least recently used cache.
 
 Time complexity of this solution is O(1)
+Space complexity of this solution is O(n) where n is the capacity with which LRU_Cache object is created

@@ -14,4 +14,15 @@ But, time complexity for building sorted frequencies dictionary for each charact
 and loop through encoded text to decode is O(n)
 
 Hence, time complexity for problem_3 solution is O(n)
+where n is the number of characters in the given text for compression
+
+Space complexity for the following features/functions of Huffman Coding are as follows 
+Building frequency dictionary is O(n) 
+Building codes and reverse_mapping array is O(n)
+Building an heap is O(n) (initially, but gradually it reduces to 1 after merging all the nodes)
+
+Hence, space complexity for problem_3 solution is O(n)
+where n is the number of characters in the given text for compression
+
+
 

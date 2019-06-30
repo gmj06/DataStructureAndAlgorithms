@@ -23,31 +23,36 @@ def find_files(suffix, path):
 
 def find_files_helper(suffix, path):
     # Case when path not provided
-    if path == "":
+    if (path == ""):
         return []
 
-    output = []
-    small_outputs = []
+    try:
+        output = []
+        small_outputs = []
 
-    for file in os.listdir(path):
-        filepath = os.path.join(path, file)
-        if os.path.isfile(filepath):
-            if suffix != "":  # Case when suffix is provided
-                if filepath.endswith(suffix):
+        for file in os.listdir(path):
+            filepath = os.path.join(path, file)
+            if os.path.isfile(filepath):
+                if suffix != "":  # Case when suffix is provided
+                    if filepath.endswith(suffix):
+                        output.append(filepath)
+                else: # Case when suffix is not provided or suffix is empty string
                     output.append(filepath)
-            else: # Case when suffix is not provided or suffix is empty string
-                output.append(filepath)
+            
+            if(os.path.isdir(filepath)):
+                small_outputs.append(find_files_helper(suffix, filepath))
+
+        # Looping through the small_outputs and flatten the small_output using reduce to get a list of paths
+        for small_output in small_outputs:
+            if small_output is not None and small_output != []:
+                output.append(reduce(operator.concat, small_output))
+
+        return output
+    except FileNotFoundError:
+        print("File or Directory doesn't exists. Please check")
         
-        if(os.path.isdir(filepath)):
-            small_outputs.append(find_files_helper(suffix, filepath))
 
-    # Looping through the small_outputs and flatten the small_output using reduce to get a list of paths
-    for small_output in small_outputs:
-        if small_output is not None and small_output != []:
-            output.append(reduce(operator.concat, small_output))
-
-    return output
-
+current_path = os.path.dirname(os.path.abspath(__file__))
 print(find_files(".c", "")) # output - []
 print(find_files("", "")) # output - []
 print(find_files(".c", os.path.join(current_path, "testdir")))
@@ -58,3 +63,5 @@ print(find_files(".c", os.path.join(current_path, "testdir")))
 # '/.../DatastructureAndAlgorithms/P1/testdir/subdir1/a.c']
 
 print(find_files("", os.path.join(current_path, "testdir"))) # output - All the files path in the specified path
+
+print(find_files("", "testdir")) # output - custom error message and returns None
