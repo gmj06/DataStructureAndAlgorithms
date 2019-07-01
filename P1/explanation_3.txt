@@ -12,8 +12,9 @@ Time complexity for insertion and deletion of Doubly Linked List is O(1), wherea
 Also, time complexity for insertion and deletion of Priority Queue as a sorted Doubly Linked List is O(1).
 But, time complexity for building sorted frequencies dictionary for each character in a given text, merging nodes 
 and loop through encoded text to decode is O(n)
+Time complexity for sorted function is O(log(n))
 
-Hence, time complexity for problem_3 solution is O(n)
+Hence, time complexity for problem_3 solution is O(nlog(n))
 where n is the number of characters in the given text for compression
 
 Space complexity for the following features/functions of Huffman Coding are as follows 
