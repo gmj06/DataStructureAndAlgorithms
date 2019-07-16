@@ -1,0 +1,8 @@
+--- Explanation for problem_2.py (Search in a Rotated Sorted Array) ---
+
+Binary Search algorithm is used to search for a given number in the rotated sorted array.
+
+Time complexity for this solution is O(log(n)) where n is the length of the given array
+Space complexity for Binary search is O(1) which is constant
+But, as this is a rotated sorted array, we have to identify the pivot.
+Hence, Space complexity for this solution is O(n) where n is the length of the given array

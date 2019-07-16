@@ -1,5 +1,6 @@
 def partition(arr):
     """
+    Three-way-partition method/algorithm
     Reference: https://en.wikipedia.org/wiki/Dutch_national_flag_problem
     """
     start_index = 0
@@ -19,6 +20,9 @@ def partition(arr):
             mid_index += 1
 
 def swap(arr, index1, index2):
+    """
+    Swapping the elements at index1 with element at index2 in the given array arr
+    """
     temp = arr[index1]
     arr[index1] = arr[index2]
     arr[index2] = temp
@@ -27,8 +31,8 @@ def swap(arr, index1, index2):
 
 def sort_012(input_list):
     """
-    Given an input array consisting on only 0, 1, and 2, sort the array in a single traversal.
-
+    Given an input array consisting on only 0, 1, and 2, 
+    sort the array in a single traversal.
     Args:
        input_list(list): List to be sorted
     """

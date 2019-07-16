@@ -1,0 +1,11 @@
+--- Explanation for problem_5.py (Autocomplete with Tries) ---
+
+Using Trie datastructure, insertion and search is faster. 
+But, the downside is it takes huge memory for storing the characters.
+
+Time complexity for this solution using Trie is O(l) 
+where l is the length of the word inserting/searching
+
+Space complexity for this solution is O(w*n) 
+where w is the number of words in the Trie and 
+n is average length of the word in the Trie
