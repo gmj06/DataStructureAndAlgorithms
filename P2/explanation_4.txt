@@ -1,0 +1,11 @@
+--- Explanation for problem_4.py (Dutch National Flag Problem) ---
+
+Sort an array consisting of only 0,1, and 2 in a single traversal can be
+achieved using Three-Way-Partition. 
+
+Time complexity for this solution is O(n) 
+where n is the number of array elements 
+
+Space complexity for this solution is O(n) 
+where n is the number of array elements 
+

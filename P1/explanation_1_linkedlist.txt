@@ -1,0 +1,7 @@
+--- Explanation for problem_1.py (LRU_Cache) ---
+
+With Doubly-Linked List, insertion and deletion time complexity is O(1) whereas search in the list is O(n) 
+where n is the number of nodes in the list
+
+Time complexity of this solution is O(n) where n is the capacity with which LRU_Cache object is created
+Space complexity of this solution is O(n) where n is the capacity with which LRU_Cache object is created

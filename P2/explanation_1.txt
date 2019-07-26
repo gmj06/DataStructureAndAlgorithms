@@ -1,0 +1,11 @@
+--- Explanation for problem_1.py (Finding the Square Root of an Integer) ---
+
+Square root of a given number is obtained using Bisection Method (reference https://en.wikipedia.org/wiki/Bisection_method)
+with the tolerance as 0.01 (means, approximating the result to two decimal places)
+which is almost similar to Binary Search algorithm.
+
+Time complexity for this solution is O(log(n)) 
+where n is the number of iterations needed to achieve a tolerance of epsilon on a interval [a, b]
+( n = log((b - a) / epsilon) to the base 2
+
+Space complexity for this solution is O[1]

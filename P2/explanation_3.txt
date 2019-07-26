@@ -1,0 +1,16 @@
+--- Explanation for problem_3.py (Rearrange Array Elements) ---
+
+The given array is sorted by converting to max-heap by using heapify (or by heapsort algorithm)
+and then identified two numbers with maximum sum by looping through the sorted array.
+
+Time complexity for heapsort is O(nlog(n))
+Time complexity for identifying the two numbers with maximum sum is O(n)
+Hence, Time complexity for this solution is O(nlog(n))
+
+Space complexity for heapsort is O(1).
+Space complexity for identifying the two numbers with maximum sum is O(n)
+Hence, Time complexity for this solution is O(n)
+
+
+
+

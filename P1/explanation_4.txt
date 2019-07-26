@@ -1,0 +1,15 @@
+--- Explanation for problem_4.py (is_user_in_group) ---
+
+To find the given user is in the Group  (and all sub groups beneath it) 
+in the Active Directory, Recursion is used.
+
+Recursion avoids repetition of code and its fast.
+
+Time complexity for problem_4 solution is O(n) 
+where n is the number of groups in the Active Directory
+
+Space complexity of recursive algorithm is proportional to maximum depth of recursion tree generated
+Hence, space complexity of this solution is O(nm) 
+where n is the total number of Groups in the Active Directory
+and m is the maximum depth of recursion tree
+

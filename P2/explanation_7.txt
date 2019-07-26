@@ -1,0 +1,11 @@
+--- Explanation for problem_7.py (HTTPRouter using a Trie) ---
+
+Using Trie datastructure, insertion and search is faster. 
+But, the downside is it takes huge memory for storing the characters.
+
+Time complexity for this solution using Trie is O(l) 
+where l is the length of the path inserting/searching
+
+Space complexity for this solution is O(w*n) 
+where w is the number of path in the Trie and 
+n is average length of the path in the Trie

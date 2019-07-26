@@ -1,0 +1,8 @@
+--- Explanation for problem_6.py (Max and Min in a Unsorted Array) ---
+
+Identifying min and max in an unsorted array in a single traversal 
+can be achieved by comparision.
+
+Both Time and Space complexity for this solution is O(n) 
+where n is the size of the given unsorted array
+
