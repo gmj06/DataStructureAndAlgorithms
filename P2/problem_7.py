@@ -16,7 +16,7 @@ class RouteTrieNode:
 class RouteTrie:
     def __init__(self, handler = None, not_found_handler = None):
         # Initialize the trie with an root node and a handler, this is the root path or home page node
-        self.root = RouteTrieNode(handler)
+        self.root = RouteTrieNode(handler)  
         self.not_found_handler = not_found_handler
 
     def split_path(self, path):
