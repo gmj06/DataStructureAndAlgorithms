@@ -1,5 +1,5 @@
 import heapq
-#import math
+import math
 
 """
 REFERENCE: https://en.wikipedia.org/wiki/A*_search_algorithm
@@ -9,7 +9,7 @@ def Euclidean_distance(intersect1, intersect2):
     """
     Euclidean Distance between two intersections
     """
-    return abs(intersect2[0] - intersect1[0]) + abs(intersect2[1] - intersect1[1]) 
+    return math.hypot(intersect2[0] - intersect1[0], intersect2[1] - intersect1[1])
 
 def reconstruct_path(came_from, current, start):
     """
@@ -29,17 +29,17 @@ def shortest_path(M, start, goal):
     """
     Finding the shortest path using A* Algorithm using Priority Queue
     """
-    open_set = [] # Initializing the Priority Queue to add/remove/search the intersection with lowest g_score with O(1)
+    open_set = []
     came_from = {} # To keep track of previous intersection while reaching from start to current intersection i
     g_score = {}  # To keep track of cost of the shortest path from start to current intersection i
     
-    came_from[start] = None # For the start intersection, there won't be any previous intersection. Hence, set as None
+    came_from[start] = None #
     g_score[start] = 0
-    heapq.heappush(open_set, (0, start)) # adding the start intersection to the Priority Queue
     
+    heapq.heappush(open_set, (0, start))
     
     while len(open_set) > 0:
-        current = heapq.heappop(open_set)[1]  # Fetching the intersect with lowest cost (g_score) from the Priority Queue
+        current = heapq.heappop(open_set)[1]  #Gives the intersect with lowest cost (g_score)
         
         if current == goal:
             return reconstruct_path(came_from, current, start)
@@ -54,7 +54,7 @@ def shortest_path(M, start, goal):
                 g_score[neighbor] = tentative_g_score
                 
                 if neighbor not in open_set:
-                    heapq.heappush(open_set, (tentative_g_score, neighbor)) 
+                    heapq.heappush(open_set, (tentative_g_score, neighbor))
                     
     return 
             
